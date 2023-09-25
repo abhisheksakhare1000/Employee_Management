@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Edit Employee</title>
+   <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+   <h1>Edit Employee</h1>
+   <form action="/edit_employee/{{ employee.id }}" method="post">
+       <input type="text" name="name" placeholder="Name" value="{{ employee.employee_name }}" required><br>
+       <input type="text" name="salary" placeholder="Salary" value="{{ employee.salary }}" required><br>
+       <input type="date" name="doj" value="{{ employee.date_of_join }}" required><br>
+       <input type="submit" value="Save Changes">
+   </form>
+</body>
+</html>

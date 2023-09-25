@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Employee Management</title>
+   <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+   <h1>Employee List</h1>
+   <table>
+       <thead>
+           <tr>
+               <th>Name</th>
+               <th>Salary</th>
+               <th>Date of Joining</th>
+               <th>Actions</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for employee in employees %}
+           <tr>
+               <td>{{ employee.employee_name }}</td>
+               <td>{{ employee.salary }}</td>
+               <td>{{ employee.date_of_join }}</td>
+               <td>
+                   <a href="/edit_employee/{{ employee.id }}">Edit</a>
+                   <a href="/delete_employee/{{ employee.id }}">Delete</a>
+               </td>
+           </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+
+   <h2>Add Employee</h2>
+   <form action="/add_employee" method="post">
+       <input type="text" name="name" placeholder="Name" required><br>
+       <input type="text" name="salary" placeholder="Salary" required><br>
+       <input type="date" name="doj" required><br>
+       <input type="submit" value="Add Employee">
+   </form>
+</body>
+</html>
